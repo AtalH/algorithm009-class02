@@ -50,6 +50,25 @@
   - [ConcurrentLinkedDeque](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentLinkedDeque.html)
   - [LinkedBlockingDeque](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingDeque.html)
   - [LinkedList](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html)
+  
+- ## 使用新 API 改写代码
+
+  ```java
+  Deque<String> deque =new LinkedList<String>();
+  deque.addFirst("a");
+  deque.addFirst("b");
+  deque.addLast("c");
+  System.out.println(deque);
+  String str = deque.peekFirst();
+  System.out.println(str);
+  System.out.println(deque);
+  while(deque.size()>0){
+  	System.out.println(deque.removeFirst());
+  }
+  System.out.println(deque);
+  ```
+
+  
 
 ## PriorityQueue
 
