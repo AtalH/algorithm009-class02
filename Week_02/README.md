@@ -13,3 +13,16 @@
 - hash 冲突时，会将冲突的 Node 放到之前的 Node 的 Next 引用，当这个 Next 引用超过阈值 8 之后，就会将 Node 转换为 TreeNode
 - 默认初始容量是 16，负载因子 0.75，当 size 达到 12 = 16 * 0.75 时，就会进行 2 倍扩容 resize()
 - resize() 会创建一个新的 Node 数组（hash table），需要 rehash 过程，rehash 就是重新计算一个 Node 节点在新数组中的下标，计算方法是用 Node 节点的 hash 值和新容量值做与运算： e.hash & (newCap - 1)
+
+LinkedHashMap
+
+- 继承了 HashMap，相较于 HashMap 的特点是，HashMap 的元素是无序的，而 LinkedHashMap 虽然也是使用数组存储节点，但是节点有 previous 和 next 引用，相当于使用了双向链表，存储了元素之间的顺序，所以遍历时的元素与插入的顺序相同
+-  put 方法之间使用了 HashMap 的 put 方法
+
+### HashSet
+
+- 使用了 HashMap 来存储元素，将元素作为 key，固定值（一个 Object 对象）最为 value 存入 HashMap 内，保证内部元素的唯一性
+
+### LinkedHashSet
+
+- 内部使用的是 LinkedHashMap
