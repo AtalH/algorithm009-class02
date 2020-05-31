@@ -26,3 +26,70 @@ LinkedHashMap
 ### LinkedHashSet
 
 - 内部使用的是 LinkedHashMap
+
+## 树
+
+- 概念
+  - 子节点
+  - 父节点
+  - 兄弟节点
+  - 子树
+  - 层数
+- 二叉树
+  - 子节点最多有 2 个
+  - 前序遍历 pre order traversal
+  - 中序遍历 in order traversal
+  - 后续遍历 post order traversal
+- 二叉搜索树
+  - 根节点比左子树所有节点都小
+  - 根节点比右子树所有节点都大
+  - 任一子树也二叉搜索树
+  - 空树也是二叉搜索树
+  - 前序遍历结果是一个递增数列
+- 完全二叉树
+  - 除了叶子节点，其他节点都有 2 个子节点
+
+## 堆
+
+- 堆是一个接口，不限制具体实现方法，它是指可以迅速找到一堆数的最大值或最小值的数据结构
+- 将根节点作为最大值的叫大顶堆或大根堆，根节点最小的堆叫作小顶堆或小根堆
+- 常见的实现有
+  - 二叉堆
+    - 使用完全二叉树实现
+    - 任一节点都比其子节点大
+  - 斐波那契堆
+  - 等等
+- 二叉堆是一种堆的比较容易实现形式，所以常见，但不是效率最高的实现，java 里的是 priority queue。斐波那契堆就是效率更高的实现。
+- 方法
+  - findMax 或 findMin O(1)
+  - deleteMax 或 deleteMin O(logn)
+    - 将堆尾元素放到堆顶
+    - heapifydown：新的堆顶元素不断与左右子节点比较，如果有子节点都比自己大，就跟较大的子节点互换位置
+  - insert O(logn) 或 O(1)
+    - 插入的新元素放到堆的尾部
+    - heapifyup：新元素不断的与父节点比较，如果比父节点大，就互换位置
+- 二叉堆能够通过一个数组存储
+  - 第 0 个元素是根节点
+  - 第 i 个节点的左子节点的下标是 2*i + 1
+  - 第 i 个节点的右子节点的下标是 2*i + 2
+  - 第 i 个节点的父节点的下标是 floor((i-1)/2)
+
+## 图
+
+- 有节点和边组成
+  - vertex 节点
+  - edge 边
+- 有向、无向
+- 权重
+- 度、出度、入度
+- 表示
+  - 邻接矩阵
+  - 邻接表
+- 常见算法
+  - DFS
+  - BFS
+  - 连通图个数：[ https://leetcode-cn.com/problems/number-of-islands/](https://leetcode-cn.com/problems/number-of-islands/)
+  - 拓扑排序（Topological Sorting）：[ https://zhuanlan.zhihu.com/p/34871092](https://zhuanlan.zhihu.com/p/34871092)
+  - 最短路径（Shortest Path）：Dijkstra https://www.bilibili.com/video/av25829980?from=search&seid=13391343514095937158
+  - 最小生成树（Minimum Spanning Tree）：[ https://www.bilibili.com/video/av84820276?from=search&seid=17476598104352152051](https://www.bilibili.com/video/av84820276?from=search&seid=17476598104352152051)
+- 遍历时记得存储已经访问过的节点，否则有环的话会死循环
